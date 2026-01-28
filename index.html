@@ -286,6 +286,80 @@
             border-color: var(--gray-200);
         }
 
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Mobile menu */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid var(--gray-200);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.75rem 1rem;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
         .cart-icon {
             width: 18px;
             height: 18px;
@@ -1271,6 +1345,177 @@
         .scroll-margin {
             scroll-margin-top: 80px;
         }
+
+        /* ========================================
+           SEÇÃO: PLANOS DE GERENCIAMENTO
+        ======================================== */
+        .plans-section {
+            background: var(--gray-100);
+        }
+
+        .plans-intro {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .plans-intro p {
+            font-size: 1.0625rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        .plan-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .plan-card.featured::before {
+            content: 'Mais popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plan-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price-currency {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .plan-price-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+        }
+
+        .plan-price-period {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .plan-desc {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .plan-features li svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .plan-cta .btn {
+            width: 100%;
+        }
+
+        .plan-card.featured .btn-primary {
+            background: var(--primary);
+        }
+
+        .plan-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+        }
+
+        .plan-note p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .plan-note strong {
+            color: var(--dark);
+        }
     </style>
 </head>
 <body>
@@ -1281,14 +1526,32 @@
         <div class="container">
             <nav class="nav">
                 <a href="#" class="logo">VIZZU Digital</a>
-                <div class="nav-cart" onclick="scrollToCart()">
-                    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span>Carrinho</span>
-                    <span class="cart-count" id="cartCount">0</span>
+                
+                <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="#pacote" class="nav-link">Abertura da Loja</a>
+                    <a href="#produtos" class="nav-link">Cadastro de Produtos</a>
+                    <a href="#planos" class="nav-link">Gerenciamento Mensal</a>
+                    <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="https://wa.me/5562982237075?text=Olá! Vim pelo site da VIZZU Digital e gostaria de mais informações." target="_blank" class="nav-link">Fale Conosco</a>
+                </div>
+
+                <div class="nav-right">
+                    <div class="nav-cart" onclick="scrollToCart()">
+                        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span>Carrinho</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -1485,6 +1748,134 @@
     </section>
 
     <!-- ========================================
+         SEÇÃO: PLANOS DE GERENCIAMENTO MENSAL
+    ======================================== -->
+    <section class="section plans-section scroll-margin" id="planos">
+        <div class="container">
+            <div class="section-title">
+                <span class="badge badge-primary">Mensal</span>
+                <h2>Gerenciamento mensal de produtos</h2>
+                <p>Sua loja sempre atualizada</p>
+            </div>
+
+            <div class="plans-intro">
+                <p>Ideal para quem recebe produtos toda semana e quer alguém cuidando da loja com organização e previsibilidade. Você envia os produtos, nós cadastramos.</p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Plano START -->
+                <div class="plan-card">
+                    <span class="plan-name">Start</span>
+                    <h3 class="plan-title">Plano Inicial</h3>
+                    <div class="plan-price">
+                        <span class="plan-price-currency">R$</span>
+                        <span class="plan-price-value">199</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+                    <p class="plan-desc">Até 15 produtos por semana (60/mês)</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>1 lote semanal (dia fixo)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Atualização de estoque</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Organização básica</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Suporte por WhatsApp</span>
+                        </li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/5562982237075?text=Olá! Tenho interesse no Plano START de gerenciamento mensal (R$199/mês - até 60 produtos)." target="_blank" class="btn btn-outline">
+                            Assinar plano
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plano GROW -->
+                <div class="plan-card featured">
+                    <span class="plan-name">Grow</span>
+                    <h3 class="plan-title">Plano Crescimento</h3>
+                    <div class="plan-price">
+                        <span class="plan-price-currency">R$</span>
+                        <span class="plan-price-value">349</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+                    <p class="plan-desc">Até 30 produtos por semana (120/mês)</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>1 lote semanal (dia fixo)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Gerenciamento de estoque</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Organização de categorias</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Suporte prioritário</span>
+                        </li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/5562982237075?text=Olá! Tenho interesse no Plano GROW de gerenciamento mensal (R$349/mês - até 120 produtos)." target="_blank" class="btn btn-primary">
+                            Assinar plano
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plano PRO -->
+                <div class="plan-card">
+                    <span class="plan-name">Pro</span>
+                    <h3 class="plan-title">Plano Profissional</h3>
+                    <div class="plan-price">
+                        <span class="plan-price-currency">R$</span>
+                        <span class="plan-price-value">599</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+                    <p class="plan-desc">Até 50 produtos por semana (200/mês)</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>1 lote semanal (dia fixo)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Gerenciamento completo</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Prioridade de atendimento</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Relatório mensal</span>
+                        </li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/5562982237075?text=Olá! Tenho interesse no Plano PRO de gerenciamento mensal (R$599/mês - até 200 produtos)." target="_blank" class="btn btn-outline">
+                            Assinar plano
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan-note">
+                <p><strong>Compromisso mínimo:</strong> 3 meses de contrato. Cancelamento com 30 dias de antecedência.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          SEÇÃO: COMO FUNCIONA
     ======================================== -->
     <section class="section steps-section scroll-margin" id="como-funciona">
@@ -1498,26 +1889,26 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Monte seu pacote</h3>
-                    <p class="step-desc">Escolha a abertura da loja e a quantidade de produtos que deseja cadastrar</p>
+                    <h3 class="step-title">Escolha o serviço</h3>
+                    <p class="step-desc">Selecione entre abertura de loja, cadastro avulso ou gerenciamento mensal</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Faça o pagamento</h3>
-                    <p class="step-desc">Finalize o pedido de forma segura e receba a confirmação por e-mail</p>
+                    <h3 class="step-title">Contrate</h3>
+                    <p class="step-desc">Finalize o pedido de forma segura pelo WhatsApp e receba as instruções</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Receba o checklist</h3>
-                    <p class="step-desc">Enviamos um formulário para você nos passar todas as informações necessárias</p>
+                    <h3 class="step-title">Envie os materiais</h3>
+                    <p class="step-desc">Nos envie fotos e informações dos produtos no dia combinado</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Loja pronta!</h3>
-                    <p class="step-desc">Entregamos sua loja 100% configurada e pronta para começar a vender</p>
+                    <h3 class="step-title">Nós cuidamos do resto</h3>
+                    <p class="step-desc">Cadastramos tudo e deixamos sua loja pronta para vender</p>
                 </div>
             </div>
         </div>
@@ -1615,12 +2006,60 @@
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        Posso adicionar mais produtos depois?
+                        Como funciona o dia fixo semanal?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Sim! Após a entrega da loja, você pode contratar pacotes adicionais de cadastro de produtos a qualquer momento. Também ensinamos como você mesmo pode cadastrar novos produtos, caso prefira.
+                            No plano de gerenciamento mensal, definimos juntos um dia da semana para receber seus produtos. Você envia as fotos e informações, e nós cadastramos tudo até o final do dia seguinte. Isso garante organização e previsibilidade para ambos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Os produtos acumulam se eu não enviar na semana?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <strong>Não.</strong> Se você não enviar produtos em uma semana, a cota daquela semana não acumula para a próxima. Por isso, planeje bem seus envios para aproveitar ao máximo o plano contratado.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Preciso enviar fotos prontas?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim! Para o cadastro, você precisa enviar <strong>fotos com boa qualidade</strong>, descrições, preços e demais informações dos produtos. Nós não fazemos produção de fotos, apenas o cadastro na plataforma.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        E se eu precisar de urgência?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Cadastros urgentes fora do dia combinado são cobrados à parte. Converse conosco pelo WhatsApp para combinar valores e disponibilidade.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Qual o prazo mínimo do plano mensal?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O compromisso mínimo é de <strong>3 meses</strong>. Após esse período, você pode cancelar com 30 dias de antecedência. Isso nos permite organizar a equipe e garantir qualidade no serviço.
                         </div>
                     </div>
                 </div>
@@ -1639,24 +2078,12 @@
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        Posso alterar a loja depois?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Com certeza! Após a entrega, você terá acesso total ao painel administrativo da sua loja e poderá fazer alterações quando quiser. Além disso, oferecemos 7 dias de suporte gratuito para tirar dúvidas após a entrega.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
                         Esse valor é mensal?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <strong>Não!</strong> O valor do nosso serviço é um <strong>pagamento único</strong>. Você paga uma vez e a loja é sua. A única mensalidade que você terá é da plataforma de e-commerce escolhida, que é paga diretamente a eles.
+                            O valor da <strong>abertura da loja é único</strong> (R$ 599,90). Já os <strong>planos de gerenciamento</strong> (Start, Grow, Pro) são mensais. Os pacotes de cadastro avulso também são pagos uma única vez.
                         </div>
                     </div>
                 </div>
@@ -1712,6 +2139,24 @@
         // ========================================
         // FUNÇÕES DE NAVEGAÇÃO
         // ========================================
+
+        /**
+         * Alterna o menu mobile
+         */
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        /**
+         * Fecha o menu ao clicar em um link
+         */
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navMenu = document.getElementById('navMenu');
+                navMenu.classList.remove('active');
+            });
+        });
 
         /**
          * Rola a página até a seção do pacote
